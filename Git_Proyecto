@@ -1,0 +1,144 @@
+$ Git init
+Initialized empty Git repository in D:/PARQUESOFT/Proyecto Git/.git/
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ ls -al
+total 0
+drwxr-xr-x 1 Helen 197121 0 May 15 10:49 ./
+drwxr-xr-x 1 Helen 197121 0 Mar  2 19:51 ../
+drwxr-xr-x 1 Helen 197121 0 May 15 10:49 .git/
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Touch index.html
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git add index.html
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git rm --cached index.html
+rm 'index.html'
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git add index.html
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git commit -m"add:archivo index"
+[master (root-commit) 2dee845] add:archivo index
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git log
+commit 2dee845a4fb983862badad0ac6ca555e477efedf (HEAD -> master)
+Author: unknown <hgaviriamendoza@gmail.com>
+Date:   Sat May 15 10:51:42 2021 -0500
+
+    add:archivo index
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git commit --amend
+[master b0b345d] add:archivo index
+ Date: Sat May 15 10:51:42 2021 -0500
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git status
+On branch master
+nothing to commit, working tree clean
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git tag
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git tag -1"v1.8.5*"
+error: unknown switch `1'
+usage: git tag [-a | -s | -u <key-id>] [-f] [-m <msg> | -F <file>]
+                <tagname> [<head>]
+   or: git tag -d <tagname>...
+   or: git tag -l [-n[<num>]] [--contains <commit>] [--no-contains <commit>] [--points-at <object>]
+                [--format=<format>] [--merged <commit>] [--no-merged <commit>] [<pattern>...]
+   or: git tag -v [--format=<format>] <tagname>...
+
+    -l, --list            list tag names
+    -n[<n>]               print <n> lines of each tag message
+    -d, --delete          delete tags
+    -v, --verify          verify tags
+
+Tag creation options
+    -a, --annotate        annotated tag, needs a message
+    -m, --message <message>
+                          tag message
+    -F, --file <file>     read message from file
+    -e, --edit            force edit of tag message
+    -s, --sign            annotated and GPG-signed tag
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -u, --local-user <key-id>
+                          use another key to sign the tag
+    -f, --force           replace the tag if exists
+    --create-reflog       create a reflog
+
+Tag listing options
+    --column[=<style>]    show tag list in columns
+    --contains <commit>   print only tags that contain the commit
+    --no-contains <commit>
+                          print only tags that don't contain the commit
+    --merged <commit>     print only tags that are merged
+    --no-merged <commit>  print only tags that are not merged
+    --sort <key>          field name to sort on
+    --points-at <object>  print only tags of the object
+    --format <format>     format to use for the output
+    --color[=<when>]      respect format colors
+    -i, --ignore-case     sorting and filtering are case insensitive
+
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git tag -a una_etiqueta -m"Bienvenido"
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git show una_etiqueta
+tag una_etiqueta
+Tagger: unknown <hgaviriamendoza@gmail.com>
+Date:   Sat May 15 10:53:58 2021 -0500
+
+Bienvenido
+
+commit b0b345d67c58420f3a2d4a2b48256d5b731e37ef (HEAD -> master, tag: una_etiqueta)
+Author: unknown <hgaviriamendoza@gmail.com>
+Date:   Sat May 15 10:51:42 2021 -0500
+
+    add:archivo index
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..e69de29
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git tag -a una_etiqueta_hash_del_commit -m"Espero la pases genial"
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git push origin una_etiqueta
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Helen@DESKTOP-737C06E MINGW64 /d/PARQUESOFT/Proyecto Git (master)
+$ Git push origin --tags
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
